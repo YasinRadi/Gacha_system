@@ -11,7 +11,7 @@ public class User {
     private int pitty;
     private Set<Character> characters;
     private List<Weapon> weapons;
-    private List<Accessory> accessories;
+    private List<Artifact> accessories;
 
     public User() {
         new User("Player1");
@@ -60,11 +60,11 @@ public class User {
         this.weapons = weapons;
     }
 
-    public List<Accessory> getAccessories() {
+    public List<Artifact> getAccessories() {
         return this.accessories;
     }
 
-    public void setAccessories(List<Accessory> accessories) {
+    public void setAccessories(List<Artifact> accessories) {
         this.accessories = accessories;
     }
 
@@ -89,7 +89,7 @@ public class User {
     public void showAccessories() {
         String accessoryString = this.accessories
             .stream()
-            .map(Accessory::toString)
+            .map(Artifact::toString)
             .collect(Collectors.joining("\n"));
         
         System.out.println(accessoryString);
