@@ -69,7 +69,7 @@ public class Banner {
     }
 
 
-    public static HashMap<Integer, Set<SummonableEntity>> getItemsBanner(String banner) {
+    public HashMap<Integer, Set<SummonableEntity>> getItemsBanner(String banner) {
         switch (banner) {
             case "Albedo":
                 return BANNER_ITEMS;
@@ -77,5 +77,10 @@ public class Banner {
             default:
                 return null;
         }
+    }
+
+    public SummonableEntity wish(User wishingUser) {
+        // TODO
+        return null;
     }
 }
