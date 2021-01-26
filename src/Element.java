@@ -1,4 +1,3 @@
-import java.awt.*;
 
 public enum Element {
 
@@ -8,7 +7,7 @@ public enum Element {
     DENDRO("Dendro"),
     CRYO("Cryo"),
     ELECTRO("Electro"),
-    GEO("geo");
+    GEO("Geo");
 
     private String element;
 
@@ -18,21 +17,21 @@ public enum Element {
 
     public String getElement() { return this.element; }
 
-    public static Colour getElement(Element element) {
+    public static String getElementColor(Element element) {
         switch(element) {
             case PYRO:
-                return Colour.RED;
+                return Rarity.RED.getRarityColor();
             case HYDRO:
-                return Colour.BLUE;
+                return Rarity.BLUE.getRarityColor();
             case ANEMO:
             case DENDRO:
-                return Colour.GREEN;
+                return Rarity.GREEN.getRarityColor();
             case CRYO:
-                return Colour.WHITE;
+                return Rarity.WHITE.getRarityColor();
             case ELECTRO:
-                return Colour.PURPLE;
+                return Rarity.PURPLE.getRarityColor();
             case GEO:
-                return Colour.YELLOW;
+                return Rarity.YELLOW.getRarityColor();
             default:
                 return null;
         }
