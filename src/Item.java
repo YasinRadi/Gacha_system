@@ -1,18 +1,26 @@
-public abstract class Item {
 
-    protected Stars stars;
-    protected String name;
+public abstract class Item extends SummonableEntity {
 
-    public Item(Stars stars, String name) {
-        this.stars = stars;
-        this.name = name;
+    protected AttributeBoost attributeBoost;
+
+    public Item(String name, StarCategory starCategory, AttributeBoost attrBoost) {
+        super(name, starCategory);
+        this.attributeBoost = attrBoost;
     }
 
-    public int getNumStars() {
-        return this.stars.getNumStars();
+    public int getStarNum() {
+        return this.starCategory.getStarNum();
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public AttributeBoost getAttributeBoost() {
+        return this.attributeBoost;
+    }
+
+    public void setAttributeBoost(AttributeBoost attrBoost) {
+        this.attributeBoost = attrBoost;
     }
 }

@@ -1,6 +1,7 @@
 public abstract class SummonableEntity {
-    private String name;
-    private StarCategory starCategory;
+    
+    protected String name;
+    protected StarCategory starCategory;
     
     public SummonableEntity (String name, StarCategory starCategory) {
         this.name = name;

@@ -1,3 +1,4 @@
+
 public class AttributeBoostBuilder implements IBuilder<AttributeBoost> {
     
     private float attackMultiplier;
