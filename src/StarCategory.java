@@ -4,6 +4,9 @@ public enum StarCategory {
     FOUR(4),
     FIVE(5);
 
+    private static final float[] PROBABILITY = {0.943f, 0.051f, 0.006f};
+    private static final int OFFSET = 3;
+
     private final int starNum;
     private Rarity rarity;
 
@@ -26,5 +29,9 @@ public enum StarCategory {
 
     public String getRarityColor() {
         return this.rarity.getRarityColor();
+    }
+
+    public float getProbability() {
+        return PROBABILITY[this.starNum - OFFSET];
     }
 }
