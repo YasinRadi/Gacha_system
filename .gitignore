@@ -1,0 +1,6 @@
+# Ignore everything as base
+*/*
+
+!**/*.java
+!.gitignore
+!gacha.iml
