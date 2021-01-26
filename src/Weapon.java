@@ -7,6 +7,11 @@ public class Weapon extends Item {
         this.weaponType = weaponType;
     }
 
+    public Weapon(String name, StarCategory starCategory, WeaponType weaponType) {
+        super(name, starCategory, null);
+        this.weaponType = weaponType;
+    }
+
     public WeaponType getWeaponType() {
         return this.weaponType;
     }

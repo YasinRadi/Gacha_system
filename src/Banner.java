@@ -1,73 +1,78 @@
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Banner {
 
-    private static HashMap<Item, Float> items_albedo_banner = new HashMap<>();
+    private static final HashMap<Integer, Set<SummonableEntity>> BANNER_ITEMS = new HashMap<>();
 
     static {
+        for (int i = 3; i <= 5; i++) {
+            BANNER_ITEMS.put(i, new HashSet<>());
+        }
+
         // Characters Albedo banner:
         // 5*
-        Banner.items_albedo_banner.put(new Character(Stars.FIVE, "Albedo", Element.GEO), 0.06f);
-        Banner.items_albedo_banner.put(new Character(Stars.FIVE, "Keching", Element.ELECTRO), 0.006f);
-        Banner.items_albedo_banner.put(new Character(Stars.FIVE, "Mona", Element.HYDRO), 0.006f);
-        Banner.items_albedo_banner.put(new Character(Stars.FIVE, "Qiqi", Element.CRYO), 0.006f);
-        Banner.items_albedo_banner.put(new Character(Stars.FIVE, "Diluc", Element.PYRO), 0.006f);
-        Banner.items_albedo_banner.put(new Character(Stars.FIVE, "Jean", Element.ANEMO), 0.006f);
+        BANNER_ITEMS.get(5).add(new Character("Albedo", StarCategory.FIVE, Element.GEO));
+        BANNER_ITEMS.get(5).add(new Character("Keching", StarCategory.FIVE, Element.ELECTRO));
+        BANNER_ITEMS.get(5).add(new Character("Mona", StarCategory.FIVE, Element.HYDRO));
+        BANNER_ITEMS.get(5).add(new Character("Qiqi", StarCategory.FIVE, Element.CRYO));
+        BANNER_ITEMS.get(5).add(new Character("Diluc", StarCategory.FIVE, Element.PYRO));
+        BANNER_ITEMS.get(5).add(new Character("Jean", StarCategory.FIVE, Element.ANEMO));
         // 4*
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Sucrose", Element.ANEMO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Bennett", Element.PYRO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Fischl", Element.ELECTRO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Diona", Element.CRYO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Chongyung", Element.CRYO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Noelle", Element.GEO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Ninguang", Element.GEO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Xingchiu", Element.HYDRO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Beidou", Element.ELECTRO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Xiangling", Element.PYRO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Razor", Element.ELECTRO), 0.051f);
-        Banner.items_albedo_banner.put(new Character(Stars.FOUR, "Barbara", Element.HYDRO), 0.051f);
+        BANNER_ITEMS.get(4).add(new Character("Sucrose", StarCategory.FOUR, Element.ANEMO));
+        BANNER_ITEMS.get(4).add(new Character("Bennett", StarCategory.FOUR, Element.PYRO));
+        BANNER_ITEMS.get(4).add(new Character("Fischl", StarCategory.FOUR, Element.ELECTRO));
+        BANNER_ITEMS.get(4).add(new Character("Diona", StarCategory.FOUR, Element.CRYO));
+        BANNER_ITEMS.get(4).add(new Character("Chongyung", StarCategory.FOUR, Element.CRYO));
+        BANNER_ITEMS.get(4).add(new Character("Noelle", StarCategory.FOUR, Element.GEO));
+        BANNER_ITEMS.get(4).add(new Character("Ninguang", StarCategory.FOUR, Element.GEO));
+        BANNER_ITEMS.get(4).add(new Character("Xingchiu", StarCategory.FOUR, Element.HYDRO));
+        BANNER_ITEMS.get(4).add(new Character("Beidou", StarCategory.FOUR, Element.ELECTRO));
+        BANNER_ITEMS.get(4).add(new Character("Xiangling", StarCategory.FOUR, Element.PYRO));
+        BANNER_ITEMS.get(4).add(new Character("Razor", StarCategory.FOUR, Element.ELECTRO));
+        BANNER_ITEMS.get(4).add(new Character("Barbara", StarCategory.FOUR, Element.HYDRO));
         // Weapons Albedo banner:
         // 4*
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Rust", WeaponType.BOWS), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Sacrificial Bow", WeaponType.BOWS), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Stringless", WeaponType.BOWS), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Favonius Bow", WeaponType.BOWS), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Ojo de la Perspicacia", WeaponType.CATALYST), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Sacrificial Memories", WeaponType.CATALYST), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Sinfonia de los Merodeadores", WeaponType.CATALYST), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Codice de Favonius", WeaponType.CATALYST), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Favonius Lance", WeaponType.POLEARM), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Perdicion del Dragon", WeaponType.POLEARM), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Segadora de la lluvia", WeaponType.CLAYMORE), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Gran Espada de Sacrificio", WeaponType.SWORD), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Espada del tiempo", WeaponType.CLAYMORE), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Gran Espada de Favonius", WeaponType.SWORD), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Rugido de Leon", WeaponType.SWORD), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Sacrificial Sword", WeaponType.SWORD), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Flute", WeaponType.SWORD), 0.051f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.FOUR, "Favonius Sword", WeaponType.SWORD), 0.051f);
+        BANNER_ITEMS.get(4).add(new Weapon("Rust", StarCategory.FOUR, WeaponType.BOW));
+        BANNER_ITEMS.get(4).add(new Weapon("Sacrificial Bow", StarCategory.FOUR, WeaponType.BOW));
+        BANNER_ITEMS.get(4).add(new Weapon("Stringless", StarCategory.FOUR, WeaponType.BOW));
+        BANNER_ITEMS.get(4).add(new Weapon("Favonius Bow", StarCategory.FOUR, WeaponType.BOW));
+        BANNER_ITEMS.get(4).add(new Weapon("Ojo de la Perspicacia", StarCategory.FOUR, WeaponType.CATALYST));
+        BANNER_ITEMS.get(4).add(new Weapon("Sacrificial Memories", StarCategory.FOUR, WeaponType.CATALYST));
+        BANNER_ITEMS.get(4).add(new Weapon("Sinfonia de los Merodeadores", StarCategory.FOUR, WeaponType.CATALYST));
+        BANNER_ITEMS.get(4).add(new Weapon("Codice de Favonius", StarCategory.FOUR, WeaponType.CATALYST));
+        BANNER_ITEMS.get(4).add(new Weapon("Favonius Lance", StarCategory.FOUR, WeaponType.POLEARM));
+        BANNER_ITEMS.get(4).add(new Weapon("Perdicion del Dragon", StarCategory.FOUR, WeaponType.POLEARM));
+        BANNER_ITEMS.get(4).add(new Weapon("Segadora de la lluvia", StarCategory.FOUR, WeaponType.CLAYMORE));
+        BANNER_ITEMS.get(4).add(new Weapon("Gran Espada de Sacrificio", StarCategory.FOUR, WeaponType.SWORD));
+        BANNER_ITEMS.get(4).add(new Weapon("Espada del tiempo", StarCategory.FOUR, WeaponType.CLAYMORE));
+        BANNER_ITEMS.get(4).add(new Weapon("Gran Espada de Favonius", StarCategory.FOUR, WeaponType.SWORD));
+        BANNER_ITEMS.get(4).add(new Weapon("Rugido de Leon", StarCategory.FOUR, WeaponType.SWORD));
+        BANNER_ITEMS.get(4).add(new Weapon("Sacrificial Sword", StarCategory.FOUR, WeaponType.SWORD));
+        BANNER_ITEMS.get(4).add(new Weapon("Flute", StarCategory.FOUR, WeaponType.SWORD));
+        BANNER_ITEMS.get(4).add(new Weapon("Favonius Sword", StarCategory.FOUR, WeaponType.SWORD));
         // 3*
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Tirachinas", WeaponType.BOWS), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Juramento del Arquero", WeaponType.BOWS), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Arco de Cuervo", WeaponType.BOWS), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Orbe Esmeralda", WeaponType.CATALYST), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Cuentos de Cazadores de Dragones", WeaponType.CATALYST), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Guia Magica", WeaponType.CATALYST), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Borla Negra", WeaponType.CATALYST), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Garrote del Debate", WeaponType.CLAYMORE), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Gran Espada Sangrienta", WeaponType.SWORD), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Sombra Ferrea", WeaponType.CLAYMORE), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Espada Surcacielos", WeaponType.SWORD), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Espada del Alba", WeaponType.SWORD), 0.943f);
-        Banner.items_albedo_banner.put(new Weapon(Stars.THREE, "Hoja Fria", WeaponType.SWORD), 0.943f);
+        BANNER_ITEMS.get(3).add(new Weapon("Tirachinas", StarCategory.THREE, WeaponType.BOW));
+        BANNER_ITEMS.get(3).add(new Weapon("Juramento del Arquero", StarCategory.THREE, WeaponType.BOW));
+        BANNER_ITEMS.get(3).add(new Weapon("Arco de Cuervo", StarCategory.THREE, WeaponType.BOW));
+        BANNER_ITEMS.get(3).add(new Weapon("Orbe Esmeralda", StarCategory.THREE, WeaponType.CATALYST));
+        BANNER_ITEMS.get(3).add(new Weapon("Cuentos de Cazadores de Dragones", StarCategory.THREE, WeaponType.CATALYST));
+        BANNER_ITEMS.get(3).add(new Weapon("Guia Magica", StarCategory.THREE, WeaponType.CATALYST));
+        BANNER_ITEMS.get(3).add(new Weapon("Borla Negra", StarCategory.THREE, WeaponType.CATALYST));
+        BANNER_ITEMS.get(3).add(new Weapon("Garrote del Debate", StarCategory.THREE, WeaponType.CLAYMORE));
+        BANNER_ITEMS.get(3).add(new Weapon("Gran Espada Sangrienta", StarCategory.THREE, WeaponType.SWORD));
+        BANNER_ITEMS.get(3).add(new Weapon("Sombra Ferrea", StarCategory.THREE, WeaponType.CLAYMORE));
+        BANNER_ITEMS.get(3).add(new Weapon("Espada Surcacielos", StarCategory.THREE, WeaponType.SWORD));
+        BANNER_ITEMS.get(3).add(new Weapon("Espada del Alba", StarCategory.THREE, WeaponType.SWORD));
+        BANNER_ITEMS.get(3).add(new Weapon("Hoja Fria", StarCategory.THREE, WeaponType.SWORD));
     }
 
 
-    public static HashMap<Item, Float> getItemsBanner(String banner) {
+    public static HashMap<Integer, Set<SummonableEntity>> getItemsBanner(String banner) {
         switch (banner) {
             case "Albedo":
-                return Banner.items_albedo_banner;
+                return BANNER_ITEMS;
 
             default:
                 return null;
